@@ -1,4 +1,5 @@
 function convertToRoman(num) {
+	if(num <= 0 || num > 100000) return "INVALID";
   	const obj = {
       0:['M',1000], 
       1:['D', 500], 
@@ -10,11 +11,19 @@ function convertToRoman(num) {
     };
 
   //your code here
+	let res = "";
+		for(let [symbol, value] of obj){
+			while(num >= value){
+				res += symbol;
+				num -= value;
+			}
+		}
+		return res;
 
 }
-// You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
+You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
-// console.log(convertToRoman(36));
+console.log(convertToRoman(36));
 
 
 
